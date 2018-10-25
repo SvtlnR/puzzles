@@ -6,13 +6,12 @@ puzzlesApp.service("imageCrop", function($q) {
 		image.onload = function() {
 			var ratio = image.width / image.height;
 			var canvasResize = document.getElementById('canvasResize');
-			if(image.width<image.height){
+			if (image.width < image.height) {
 				canvasResize.width = 480;
-				canvasResize.height = 480 / ratio;	
-			}
-			else{
+				canvasResize.height = 480 / ratio;
+			} else {
 				canvasResize.height = 480;
-				canvasResize.width = 480 * ratio;		
+				canvasResize.width = 480 * ratio;
 			}
 			canvasResize.getContext('2d').drawImage(image, 0, 0, canvasResize.width, canvasResize.height);
 			resizedImageSrc = canvasResize.toDataURL('image/jpeg', 1.0);
@@ -36,6 +35,5 @@ puzzlesApp.service("imageCrop", function($q) {
 			}
 		}
 		return deferredObject.promise;
-
 	}
 });

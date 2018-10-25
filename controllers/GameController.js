@@ -20,6 +20,9 @@ puzzlesApp.controller("GameController", function($scope, $location, $compile, $q
 		shuffleArray($scope.puzzles);
 		puzzlesService.savePositions($scope.puzzles);
 	}
+	$scope.goToMenu = function() {
+		$location.path('/menu');
+	}
 	$scope.isSolved = checkIsSolved();
 	var dragObject = {};
 	$scope.drag = function(e) {
@@ -39,18 +42,18 @@ puzzlesApp.controller("GameController", function($scope, $location, $compile, $q
 			angular.element(dragObject.elem).on("mouseup", function(event) {
 				angular.element(dragObject.elem).off("mousemove");
 				dragObject.elem.style.zIndex = 1;
-					selectedElem = findDropparbleElement(event);
-					if (selectedElem && selectedElem.classList.contains("draggable")) {
-						var dragObjectIndex = dragObject.elem.getAttribute("data-position");
-						var selectedElemIndex = selectedElem.getAttribute("data-position");
-						swapValues(dragObjectIndex, selectedElemIndex);
-						puzzlesService.savePositions($scope.puzzles);
-						$scope.isSolved = checkIsSolved();
-						$scope.$apply();
-					}
-					dragObject.elem.style.left = dragObject.originalLeft + 'px';
-					dragObject.elem.style.top = dragObject.originalTop + 'px';
-					dragObject = {};
+				selectedElem = findDropparbleElement(event);
+				if (selectedElem && selectedElem.classList.contains("draggable")) {
+					var dragObjectIndex = dragObject.elem.getAttribute("data-position");
+					var selectedElemIndex = selectedElem.getAttribute("data-position");
+					swapValues(dragObjectIndex, selectedElemIndex);
+					puzzlesService.savePositions($scope.puzzles);
+					$scope.isSolved = checkIsSolved();
+				}
+				dragObject.elem.style.left = dragObject.originalLeft + 'px';
+				dragObject.elem.style.top = dragObject.originalTop + 'px';
+				$scope.$apply();
+				dragObject = {};
 			});
 		}
 	}

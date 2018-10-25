@@ -1,12 +1,14 @@
 body{
-	background-color:#FFFAFA;
+	background-color:#f3f3f6;
 }
 .btn{
 	cursor: pointer;
 	background-color: white;
     color: black;
     padding: 5px;
-    border: 2px solid #8B4513; 
+    border: 2px solid #6cb4b8;
+    background-color: #6cb4b8; 
+    margin: 5px;
 }
 .puzzlesArea{
 	border: 1px solid #000000;
@@ -14,7 +16,7 @@ body{
 	height: 480px;
 }
 .droppable{
-	background-color: #FFFAFA;
+	background-color: #e3dcd5;
 }
 .draggable{
 	cursor:pointer;
