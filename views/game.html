@@ -1,0 +1,11 @@
+<div ng-controller="GameController">
+	<div class="puzzlesArea">
+		<div ng-repeat="puzzle in puzzles">
+			<div class="droppable" ng-style="{'width': widthCell + 'px', 'height': heightCell + 'px', 'float':'left'}">
+				<div class="draggable"  data-id="{{puzzle.id}}" data-position="{{$index}}" ng-mousedown="drag($event)" ng-style="{'width': widthCell + 'px', 'height': heightCell + 'px', 'float':'left','zIndex':'1','background-image': 'url({{puzzle.val}})'}">
+				</div>
+			</div>
+		</div>
+    </div>
+    <button class="btn" ng-click="restart()">Restart</button>
+</div>

@@ -1,0 +1,14 @@
+<div ng-controller="GameOptionsController">
+	<h1>Choose options for your game</h1>
+	<h3>Choose picture</h3>
+	<h3>Amount of puzzles</h3>
+	<div ng-repeat="amount in optionsAmount">
+        <label>
+            <input type="radio" ng-model="$parent.selectedAmount" ng-value="amount" name="quantity" />{{amount}}</label>
+    </div>
+    <h1>{{selectedAmount}}</h1>
+    <button class="btn" ng-click="start()">Start</button>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvasResize"></canvas>
+</div>
+  
