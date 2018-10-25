@@ -41,7 +41,10 @@ puzzlesApp.controller("GameController", function($scope, $location, $compile, $q
 			});
 			angular.element(dragObject.elem).on("mouseup", function(event) {
 				angular.element(dragObject.elem).off("mousemove");
+				console.log(dragObject.elem);
 				dragObject.elem.style.zIndex = 1;
+				dragObject.elem.style.left = dragObject.originalLeft + 'px';
+				dragObject.elem.style.top = dragObject.originalTop + 'px';
 				selectedElem = findDropparbleElement(event);
 				if (selectedElem && selectedElem.classList.contains("draggable")) {
 					var dragObjectIndex = dragObject.elem.getAttribute("data-position");
@@ -49,15 +52,12 @@ puzzlesApp.controller("GameController", function($scope, $location, $compile, $q
 					swapValues(dragObjectIndex, selectedElemIndex);
 					puzzlesService.savePositions($scope.puzzles);
 					$scope.isSolved = checkIsSolved();
+					$scope.$apply();
 				}
-				dragObject.elem.style.left = dragObject.originalLeft + 'px';
-				dragObject.elem.style.top = dragObject.originalTop + 'px';
-				$scope.$apply();
 				dragObject = {};
 			});
 		}
 	}
-
 	function findDropparbleElement(e) {
 		dragObject.elem.style.visibility = "hidden";
 		var elem = document.elementFromPoint(e.clientX, e.clientY);
