@@ -1,7 +1,8 @@
-puzzlesApp.controller("GameController", function($scope, $location, $compile, $q, puzzlesService, imageCrop) {
+puzzlesApp.controller("GameController", function($scope, $location, $compile, $q, puzzlesService) {
 	$scope.heightCell = 480 / puzzlesService.getVerticalAmount();
 	$scope.widthCell = 480 / puzzlesService.getHorizontalAmount();
 	$scope.puzzles = new Array(puzzlesService.getHorizontalAmount() * puzzlesService.getVerticalAmount());
+	$scope.message="Puzzle is solved";
 	var storedPuzzles = puzzlesService.getPuzzles();
 	$scope.positions = puzzlesService.getPositions();
 	if ($scope.positions.length === 0) {
