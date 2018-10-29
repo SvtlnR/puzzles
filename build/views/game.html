@@ -1,4 +1,6 @@
 <div ng-controller="GameController">
+	<button class="btn" ng-click="goToMenu()">Menu</button>
+    <button class="btn" ng-click="restart()">Restart</button>
 	<div class="puzzlesArea">
 		<div ng-repeat="puzzle in puzzles">
 			<div class="droppable" ng-style="{'width': widthCell + 'px', 'height': heightCell + 'px', 'float':'left'}">
@@ -9,6 +11,4 @@
 		<div class="solved" ng-if="isSolved" ng-bind="message">
 		</div>
     </div>
-    <button class="btn" ng-click="goToMenu()">Menu</button>
-    <button class="btn" ng-click="restart()">Restart</button>
 </div>

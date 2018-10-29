@@ -1,0 +1,17 @@
+<div ng-controller="GameOptionsController">
+	<div class="blockTitle">Choose options for your game</div>
+	<div class="textOptions">Choose picture</div>
+	<div ng-repeat="pic in pics">
+        <label>
+            <input type="radio" class="radioBtn" ng-model="$parent.selectedImage" ng-value="pic" name="picture" /><img ng-src="{{pic}}" width="220px" /></label>
+    </div>
+    <div class="textOptions">Amount of puzzles</div>
+	<div ng-repeat="amount in optionsAmount">
+        <label class="textOptions">
+            <input type="radio" class="radioBtn" ng-model="$parent.selectedAmount" ng-value="amount" name="quantity" />{{amount}}</label>
+    </div>
+    <button class="btn" ng-click="start()">Start</button><br/>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvasResize"></canvas>
+</div>
+  
