@@ -13,11 +13,11 @@ gulp.task('clean', function() {
         })
         .pipe(clean());
 });
-gulp.task('html', function() {
+gulp.task('html', ['clean'], function() {
     gulp.src("src/views/*.html")
         .pipe(gulp.dest("build/views"));
 });
-gulp.task('styles', function() {
+gulp.task('styles', ['clean'], function() {
     return gulp.src('src/style.css')
         .pipe(csso())
         .pipe(rename({
@@ -25,7 +25,7 @@ gulp.task('styles', function() {
         }))
         .pipe(gulp.dest('build/css'))
 });
-gulp.task("scripts", function() {
+gulp.task("scripts", ['clean'], function() {
     return gulp.src("src/**/*.js")
         .pipe(concat('scripts.js'))
         .pipe(ngAnnotate())
@@ -35,7 +35,7 @@ gulp.task("scripts", function() {
         }))
         .pipe(gulp.dest("build/js"));
 });
-gulp.task('image', function() {
+gulp.task('image', ['clean'], function() {
     gulp.src('src/images/*.{jpg,jpeg,png,gif}')
         .pipe(imagemin({
             progressive: true
@@ -50,5 +50,5 @@ gulp.task('addFiles', ['scripts', 'styles'], function() {
     return target.pipe(inject(sources))
         .pipe(gulp.dest('build'));
 });
-gulp.task('build', ['html', 'styles', 'scripts', 'image', 'addFiles']);
+gulp.task('build', ['clean', 'html', 'styles', 'scripts', 'image', 'addFiles']);
 gulp.task('default', ['build']);
