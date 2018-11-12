@@ -1,6 +1,6 @@
 puzzlesApp.controller("GameController", function($scope, $location, $compile, $q,$interval, puzzlesService) {
-	$scope.heightCell = 480 / puzzlesService.getVerticalAmount();
-	$scope.widthCell = 480 / puzzlesService.getHorizontalAmount();
+	$scope.heightCell = puzzlesService.getWidthDevice() / puzzlesService.getVerticalAmount();
+	$scope.widthCell = puzzlesService.getWidthDevice() / puzzlesService.getHorizontalAmount();
 	$scope.puzzles = new Array(puzzlesService.getHorizontalAmount() * puzzlesService.getVerticalAmount());
 	$scope.message="";
 	$scope.pausedGame=true;

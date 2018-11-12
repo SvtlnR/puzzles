@@ -9,15 +9,19 @@ puzzlesApp.service("puzzlesService", function($window,$interval) {
 	var totalTime=storedTotalTime?Number(storedTotalTime):0;
 	var storedRecordTime=localStorage.getItem("recordTime");
 	var recordTime=storedRecordTime?JSON.parse(storedRecordTime) : {};
-	this.saveOptions = function(horizontalAmount, verticalAmount) {
+	this.saveOptions = function(horizontalAmount, verticalAmount, widthDevice) {
 		if (options.length !== 0) {
 			options = [];
 		}
 		options.push({
+			widthDevice: widthDevice,
 			horizontalAmount: horizontalAmount,
 			verticalAmount: verticalAmount,
 		});
 		syncStorageOptions();
+	}
+	this.getWidthDevice=function(){
+		return options[0]["widthDevice"];
 	}
 	this.getHorizontalAmount = function() {
 		return options[0]["horizontalAmount"];

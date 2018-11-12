@@ -2,18 +2,18 @@
 	<div class="blockTitle">Choose options for your game</div>
 	<div class="textOptions">Choose picture</div>
 	<div ng-repeat="pic in pics">
-        <label>
+        <label class="textOptions">
             <input type="radio" class="radioBtn" ng-model="$parent.selectedImage" ng-value="pic" ng-checked="checkImage()" name="picture" /><img ng-src="{{pic}}" width="220px" /></label>
     </div>
-    <label ng-style="{'font-size': '18px', 'font-family': 'Open Sans, sans-serif'}">
+    <label class="textOptions">
         <input type="radio" class="radioBtn" ng-model="selectedImage" name="picture"/>Upload your own picture 
             <div class="fileUpload" ng-if="visibleUploader">
                 <label>
                     <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" id="addfile">
                     <span>Choose file</span>
                 </label>
-                <div class="fileloaded"></div>
-        </div>
+            </div>
+            <div class="fileloaded">{{fileName}}</div>
     </label>
     <div class="fileerror">{{errorMes}}</div>
     <div class="textOptions">Amount of puzzles</div>

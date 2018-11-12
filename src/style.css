@@ -13,7 +13,8 @@ body{
 	font-size: 35px;
 	margin: 10px;
 }
-.draggable.ng-mousedown{
+
+/*.draggable.ng-mousedown{
 	-webkit-transition: 0.5s linear all;
 	 transition: 0.5s linear all;
 	 transform: scale(2, 2);
@@ -22,7 +23,7 @@ body{
 	-webkit-transition: 0.5s linear all;
 	transition: 0.5s linear all;
 	transform: scale(1/2, 1/2);
-}
+}*/
 .menu{
 	margin: 20px;
 	padding: 10px;
@@ -138,8 +139,6 @@ body{
 	color:#8B0000;
 }
 .fileloaded{
-	margin: 1%;
-	height: 3vh;
 	font-size: 80%;
 	font-family: 'Lato', sans-serif;
 	float: none;
@@ -192,6 +191,13 @@ body{
 	    left: 15%;
 	    margin: 20px;
 	}
+	.menublock .btn{
+		width: 100px;
+		font-size: 15px;
+	    position: relative;
+	    left: 5%;
+	    margin: 5px;
+	}
 	.timer{
 		font-size: 45px;
 		text-align: center;
@@ -209,6 +215,23 @@ body{
 		width: 25px;
 		height: 25px;
 	}
+	.fileUpload {
+		position: relative;
+		left:15%;
+	    width: 190px;
+	    height:38px;
+	}
+	.fileerror{
+		font-size: 25px;
+	}
+	.puzzlesArea{
+		width:300px;
+		height: 300px;
+	}
+	.covered, .solvedCover{
+		height: 300px;
+		width: 300px;
+	}
 }
 @media (max-width: 812px)
   and (orientation: landscape){
@@ -222,6 +245,13 @@ body{
 	    position: relative;
 	    left: 30%;
 	    margin: 20px;
+	}
+	.menublock .btn{
+		width: 100px;
+		font-size: 20px;
+	    position: relative;
+	    left: 10%;
+	    margin: 10px;
 	}
 	.textOptions{
 		font-size: 30px;
@@ -240,6 +270,20 @@ body{
 		font-size: 45px;
 		text-align: center;
 	}
+	.fileUpload {
+		position: relative;
+		left:15%;
+	    width: 190px;
+	    height:38px;
+	}
+	.fileerror{
+		font-size: 25px;
+	}
+	.covered, .solvedCover, .puzzlesArea{
+		height: 300px;
+		width: 300px;
+	}
+
 }
 @media (min-width: 768px)
   	and (max-width: 959px)
@@ -255,6 +299,13 @@ body{
 	    position: relative;
 	    left: 30%;
 	    margin: 20px;
+	}
+	.menublock .btn{
+		width: 140px;
+		font-size: 35px;
+	    position: relative;
+	    left: 5%;
+	    margin: 10px;
 	}
 	.textOptions{
 		font-size: 60px;
@@ -272,6 +323,20 @@ body{
 	.timer{
 		font-size: 45px;
 		text-align: center;
+	}
+	.fileUpload {
+		position: relative;
+		left:30%;
+	    width: 300px;
+	    height:68px;
+	    font-size: 50px;
+	}
+	.fileerror{
+		font-size: 40px;
+	}
+	.covered, .solvedCover, .puzzlesArea{
+		height: 720px;
+		width: 720px;
 	}
  	
  }
@@ -293,6 +358,13 @@ body{
 	.textOptions{
 		font-size: 60px;
 	}
+	.menublock .btn{
+		width: 140px;
+		font-size: 35px;
+	    position: relative;
+	    left: 5%;
+	    margin: 10px;
+	}
 	.radioBtn:checked::before
 	{
 	     font: 40px/1 'Open Sans', sans-serif;
@@ -305,6 +377,21 @@ body{
 	}
 	.timer{
 		font-size: 45px;
-		text-align: center;
+		position: relative;
+		left: 20%;
+	}
+	.fileUpload {
+		position: relative;
+		left:30%;
+		font-size: 50px;
+	    width: 300px;
+	    height:68px;
+	}
+	.fileerror{
+		font-size: 40px;
+	}
+	.covered, .solvedCover, .puzzlesArea{
+		height: 720px;
+		width: 720px;
 	}
 }

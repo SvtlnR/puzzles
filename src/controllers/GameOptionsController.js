@@ -1,4 +1,4 @@
-puzzlesApp.controller("GameOptionsController", function($scope, $location, puzzlesService, imageCrop) {
+puzzlesApp.controller("GameOptionsController", function($window, $scope, $location, puzzlesService, imageCrop) {
 	$scope.optionsAmount = [9, 16, 25];
 	$scope.pics = ["./images/img1.jpg", "./images/img2.jpeg"];
 	$scope.selectedImage = $scope.pics[0];
@@ -10,6 +10,7 @@ puzzlesApp.controller("GameOptionsController", function($scope, $location, puzzl
 			$scope.visibleUploader = true;
 			return;
 		}
+		$scope.fileName="";
 		$scope.visibleUploader = false;
 
 	}
@@ -27,6 +28,7 @@ puzzlesApp.controller("GameOptionsController", function($scope, $location, puzzl
 		if(file){
 			reader.readAsDataURL(file);
 		}
+		$scope.fileName=file.name;
 		$scope.errorMes="";
 		$scope.errorStart="";
 		$scope.$apply();
@@ -36,9 +38,16 @@ puzzlesApp.controller("GameOptionsController", function($scope, $location, puzzl
 			$scope.errorStart = "You haven't chosen image";
 			return;
 		}
-		imageCrop.cutImage(Math.sqrt($scope.selectedAmount), Math.sqrt($scope.selectedAmount), $scope.selectedImage).then(function(imgPieces) {
+		$scope.widthDevice=480;
+		if($window.outerWidth<=480){
+			$scope.widthDevice=300;
+		}
+		if($window.outerWidth>=768 && $window.outerWidth<=959){
+			$scope.widthDevice=720;
+		}
+		imageCrop.cutImage(Math.sqrt($scope.selectedAmount), Math.sqrt($scope.selectedAmount), $scope.selectedImage, $scope.widthDevice).then(function(imgPieces) {
 			puzzlesService.savePuzzles(imgPieces);
-			puzzlesService.saveOptions(Math.sqrt($scope.selectedAmount), Math.sqrt($scope.selectedAmount));
+			puzzlesService.saveOptions(Math.sqrt($scope.selectedAmount), Math.sqrt($scope.selectedAmount),$scope.widthDevice);
 			puzzlesService.clearPositions();
 			puzzlesService.saveTime(0);
 			$location.path('/game');

@@ -1,7 +1,9 @@
 <div ng-controller="GameController">
-	<button class="btn" ng-click="goToMenu()">Menu</button>
-    <button class="btn" ng-click="restart()">Restart</button>
-    <button class="btn" ng-click="pauseOrResume()">{{btnPlayPause}}</button><br/>
+	<div class="menublock">
+		<button class="btn" ng-click="goToMenu()">Menu</button>
+	    <button class="btn" ng-click="restart()">Restart</button>
+	    <button class="btn" ng-click="pauseOrResume()">{{btnPlayPause}}</button><br/>
+	</div>
 	<div class="timer">{{hours}}:{{minutes}}:{{seconds}}</div>
 	<div class="puzzlesArea">
 		<div ng-repeat="puzzle in puzzles">
