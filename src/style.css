@@ -131,6 +131,12 @@ body{
 	cursor:pointer;
 	border: 1px solid;
 }
+.fileerror{
+	margin: 18px;
+	font-size: 15px;
+	font-family: 'Open Sans', sans-serif;
+	color:#8B0000;
+}
 .fileloaded{
 	margin: 1%;
 	height: 3vh;
@@ -141,8 +147,8 @@ body{
 }
 .fileUpload {
 	margin: 1%;
-     position: relative; /* Даем возможность делать позиционирование, внутри данного элемента */
-     overflow: hidden; /* Все что выходит за пределы - скрываем */
+     position: relative;
+     overflow: hidden; 
      width: 150px;
      height:24px;
      font-size: 100%;
@@ -157,10 +163,9 @@ body{
 }
 
 .fileUpload input[type="file"]{
-    display: none; /* Обязательно скрываем настоящий Input File */
+    display: none;
 }
 .fileUpload label {
-     /* Растягиваем label на всю возможную площадь блока .file-upload */
      display: block;
      position: absolute;
      top: 0;
@@ -170,9 +175,8 @@ body{
      cursor: pointer;
 }
 .fileUpload span {
-     line-height: 36px; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+     line-height: 36px; 
 }
-
 
 @media (max-width: 480px)
   and (orientation: portrait)

@@ -1,33 +1,41 @@
 puzzlesApp.controller("GameOptionsController", function($scope, $location, puzzlesService, imageCrop) {
 	$scope.optionsAmount = [9, 16, 25];
-	$scope.pics=["./images/img1.jpg","./images/img2.jpeg"];
+	$scope.pics = ["./images/img1.jpg", "./images/img2.jpeg"];
 	$scope.selectedImage = $scope.pics[0];
 	$scope.selectedAmount = 9;
-	$scope.visibleUploader=false;
-	$scope.checkImage=function(){
-		if(angular.isUndefined($scope.selectedImage)){
-			$scope.visibleUploader=true;
+	$scope.visibleUploader = false;
+	$scope.errorMes = "";
+	$scope.checkImage = function() {
+		if (angular.isUndefined($scope.selectedImage)) {
+			$scope.visibleUploader = true;
 			return;
 		}
-		$scope.visibleUploader=false;
+		$scope.visibleUploader = false;
 
 	}
-	$scope.uploadFile=function(files){
-		console.log(files);
-		var file=files[0];
+	$scope.uploadFile = function(files) {
+		var file = files[0];
+		if (!file.name.match(/.\.jpe?g/i)) {
+			$scope.errorMes = "File extension has to be *.jpg, *jpeg";
+			$scope.$apply();
+			return;
+		}
 		var reader = new FileReader();
-       reader.onloadend = function(event) {
-          	$scope.selectedImage=reader.result		
-        };
-        if(file){
-        	reader.readAsDataURL(file);	
-        }
+		reader.onloadend = function(event) {
+			$scope.selectedImage = reader.result
+		};
+		if(file){
+			reader.readAsDataURL(file);
+		}
+		$scope.errorMes="";
+		$scope.errorStart="";
+		$scope.$apply();
 	}
 	$scope.start = function() {
-		if($scope.visibleUploader){
-
+		if (angular.isUndefined($scope.selectedImage)) {
+			$scope.errorStart = "You haven't chosen image";
+			return;
 		}
-
 		imageCrop.cutImage(Math.sqrt($scope.selectedAmount), Math.sqrt($scope.selectedAmount), $scope.selectedImage).then(function(imgPieces) {
 			puzzlesService.savePuzzles(imgPieces);
 			puzzlesService.saveOptions(Math.sqrt($scope.selectedAmount), Math.sqrt($scope.selectedAmount));

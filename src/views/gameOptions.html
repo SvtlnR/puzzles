@@ -5,20 +5,24 @@
         <label>
             <input type="radio" class="radioBtn" ng-model="$parent.selectedImage" ng-value="pic" ng-checked="checkImage()" name="picture" /><img ng-src="{{pic}}" width="220px" /></label>
     </div>
-    <label ng-style="{'font-size': '18px',
-    'font-family': 'Open Sans, sans-serif'}">
-            <input type="radio" class="radioBtn" ng-model="selectedImage" name="picture" />Upload your own picture <!-- <input type="file" name="file" id="file-field" ng-if="visibleUploader"/> --><div class="fileUpload" ng-if="visibleUploader">
-                        <label>
-                            <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" id="addfile">
-                            <span>Choose file</span>
-                        </label>
-                        <div class="fileloaded"></div>
-                    </div></label>
+    <label ng-style="{'font-size': '18px', 'font-family': 'Open Sans, sans-serif'}">
+        <input type="radio" class="radioBtn" ng-model="selectedImage" name="picture"/>Upload your own picture 
+            <div class="fileUpload" ng-if="visibleUploader">
+                <label>
+                    <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" id="addfile">
+                    <span>Choose file</span>
+                </label>
+                <div class="fileloaded"></div>
+        </div>
+    </label>
+    <div class="fileerror">{{errorMes}}</div>
     <div class="textOptions">Amount of puzzles</div>
 	<div ng-repeat="amount in optionsAmount">
         <label class="textOptions">
-            <input type="radio" class="radioBtn" ng-model="$parent.selectedAmount" ng-value="amount" name="quantity" />{{amount}}</label>
+            <input type="radio" class="radioBtn" ng-model="$parent.selectedAmount" ng-value="amount" name="quantity" />{{amount}}
+        </label>
     </div>
+    <div class="fileerror">{{errorStart}}</div>
     <button class="btn" ng-click="start()">Start</button><br/>
     <canvas id="canvas"></canvas>
     <canvas id="canvasResize"></canvas>
