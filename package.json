@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-route": "^1.6.4"
+    "angular-gestures": "^0.3.3",
+    "angular-route": "^1.6.4",
+    "hammerjs": "^2.0.8"
   }
 }

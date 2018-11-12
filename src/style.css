@@ -1,11 +1,27 @@
 body{
 	background-color:#f6f4f5;
 }
+.timer{
+	font-family: 'Lato', sans-serif;
+	font-size: 35px;
+	color:#301c0c;
+	margin: 2px 50px;
+}
 .blockTitle{
 	color: #301c0c;
 	font-family: 'Lato', sans-serif;
 	font-size: 35px;
 	margin: 10px;
+}
+.draggable.ng-mousedown{
+	-webkit-transition: 0.5s linear all;
+	 transition: 0.5s linear all;
+	 transform: scale(2, 2);
+}
+.draggable.ng-mouseup{
+	-webkit-transition: 0.5s linear all;
+	transition: 0.5s linear all;
+	transform: scale(1/2, 1/2);
 }
 .menu{
 	margin: 20px;
@@ -68,6 +84,45 @@ body{
 	font-size: 30px;
 	font-family: 'Open Sans', sans-serif;
 	color:#FFFFFF;
+	transition: 0.3s linear all;
+}
+.solved.ng-enter{
+	opacity: 0;
+}
+.solved.ng-enter-active{
+	opacity: 1;
+}
+.solvedCover{
+	z-index: 99;
+	position: relative;
+	height: 480px;
+	background-color: #150c05;
+	transition: 0.3s linear all;	
+	opacity: 0.5;
+}
+.solvedCover.ng-enter,
+.solved.ng-leave.ng-leave-active{
+	opacity: 0;
+}
+.solvedCover.ng-enter-active,
+.solved.ng-leave{
+	opacity: 0.5;
+}
+.covered{
+	z-index: 98;
+	position: relative;
+	height: 480px;
+	background-color: #150c05;
+	transition: 0.2s linear all;	
+	opacity: 0.9;
+}
+.covered.ng-enter,
+.covered.ng-leave.ng-leave-active{
+	opacity: 0;
+}
+.covered.ng-enter-active,
+.covered.ng-leave{
+	opacity: 0.9;
 }
 .droppable{
 	background-color:#bfbbb5;
@@ -76,5 +131,176 @@ body{
 	cursor:pointer;
 	border: 1px solid;
 }
+.fileloaded{
+	margin: 1%;
+	height: 3vh;
+	font-size: 80%;
+	font-family: 'Lato', sans-serif;
+	float: none;
+	color:  #006400;
+}
+.fileUpload {
+	margin: 1%;
+     position: relative; /* Даем возможность делать позиционирование, внутри данного элемента */
+     overflow: hidden; /* Все что выходит за пределы - скрываем */
+     width: 150px;
+     height:24px;
+     font-size: 100%;
+     font-family: 'Lato', sans-serif;
+	color: #fbf8f8;
+	padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #877a79;
+    background-color: #877a79; 
+    margin: 10px;
+     text-align: center;
+}
+
+.fileUpload input[type="file"]{
+    display: none; /* Обязательно скрываем настоящий Input File */
+}
+.fileUpload label {
+     /* Растягиваем label на всю возможную площадь блока .file-upload */
+     display: block;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     cursor: pointer;
+}
+.fileUpload span {
+     line-height: 36px; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+}
 
 
+@media (max-width: 480px)
+  and (orientation: portrait)
+  {
+	.blockTitle{
+		font-size: 45px;
+		text-align: center;
+	}	
+	.btn{
+		width: 190px;
+		font-size: 30px;
+	    position: relative;
+	    left: 15%;
+	    margin: 20px;
+	}
+	.timer{
+		font-size: 45px;
+		text-align: center;
+	}
+  	.textOptions{
+		font-size: 30px;
+	}
+	.radioBtn:checked::before
+	{
+	     font: 25px/1 'Open Sans', sans-serif;
+	     margin: 2px;
+	     content: '\2713';
+	}
+	.radioBtn{
+		width: 25px;
+		height: 25px;
+	}
+}
+@media (max-width: 812px)
+  and (orientation: landscape){
+  	.blockTitle{
+		font-size: 50px;
+		text-align: center;
+	}
+	.btn{
+		width: 190px;
+		font-size: 30px;
+	    position: relative;
+	    left: 30%;
+	    margin: 20px;
+	}
+	.textOptions{
+		font-size: 30px;
+	}
+	.radioBtn:checked::before
+	{
+	     font: 25px/1 'Open Sans', sans-serif;
+	     margin: 2px;
+	     content: '\2713';
+	}
+	.radioBtn{
+		width: 25px;
+		height: 25px;
+	}
+	.timer{
+		font-size: 45px;
+		text-align: center;
+	}
+}
+@media (min-width: 768px)
+  	and (max-width: 959px)
+  	and (orientation:portrait){
+  	.blockTitle{
+		font-size: 80px;
+		margin: 20px;
+		text-align: center;
+	}
+	.btn{
+		width: 300px;
+		font-size: 50px;
+	    position: relative;
+	    left: 30%;
+	    margin: 20px;
+	}
+	.textOptions{
+		font-size: 60px;
+	}
+	.radioBtn:checked::before
+	{
+	     font: 40px/1 'Open Sans', sans-serif;
+	     margin: 2px;
+	     content: '\2713';
+	}
+	.radioBtn{
+		width: 40px;
+		height: 40px;
+	}
+	.timer{
+		font-size: 45px;
+		text-align: center;
+	}
+ 	
+ }
+ @media (min-width: 960px)
+  	and (max-width: 1024px)
+  	and (orientation:landscape){
+  	.blockTitle{
+		font-size: 80px;
+		margin: 20px;
+		text-align: center;
+	}
+	.btn{
+		width: 300px;
+		font-size: 50px;
+	    position: relative;
+	    left: 32%;
+	    margin: 20px;
+	}
+	.textOptions{
+		font-size: 60px;
+	}
+	.radioBtn:checked::before
+	{
+	     font: 40px/1 'Open Sans', sans-serif;
+	     margin: 2px;
+	     content: '\2713';
+	}
+	.radioBtn{
+		width: 40px;
+		height: 40px;
+	}
+	.timer{
+		font-size: 45px;
+		text-align: center;
+	}
+}

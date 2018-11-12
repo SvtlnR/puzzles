@@ -3,14 +3,34 @@
 <head>
 	<title>Puzzles</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+
+
+
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
 	<!-- inject:css -->
   	<!-- endinject -->
 </head>
 <body>
 	<ng-view></ng-view>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	<script src="./hammer.min.js"></script>		
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-route.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular-animate.js"></script>
+	<script src="./gestures.min.js"></script>		
+	
+
+
+	<script src="./puzzlesApp.js"></script>
+	<script src="./services/imageCrop.js"></script>
+	<script src="./services/puzzlesService.js"></script>
+	<script src="./controllers/GameController.js"></script>
+	<script src="./controllers/GameOptionsController.js"></script>
+	<script src="./controllers/MenuController.js"></script>
+
 	<!-- inject:js -->
   	<!-- endinject -->
 </body>

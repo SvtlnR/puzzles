@@ -1,12 +1,18 @@
 <div ng-controller="GameController">
 	<button class="btn" ng-click="goToMenu()">Menu</button>
     <button class="btn" ng-click="restart()">Restart</button>
+    <button class="btn" ng-click="pauseOrResume()">{{btnPlayPause}}</button><br/>
+	<div class="timer">{{hours}}:{{minutes}}:{{seconds}}</div>
 	<div class="puzzlesArea">
 		<div ng-repeat="puzzle in puzzles">
 			<div class="droppable" ng-style="{'width': widthCell + 'px', 'height': heightCell + 'px', 'float':'left'}">
-				<div class="draggable"  data-id="{{puzzle.id}}" data-position="{{$index}}" ng-mousedown="drag($event)" ng-style="{'width': widthCell + 'px', 'height': heightCell + 'px', 'float':'left','zIndex':'1','background-image': 'url({{puzzle.val}})'}">
+				<div class="draggable"  data-id="{{puzzle.id}}" data-position="{{$index}}" hm-drag-start="dragPhone($event)" ng-mousedown="drag($event)" ng-style="{'width': widthCell + 'px', 'height': heightCell + 'px', 'float':'left','zIndex':'1','background-image': 'url({{puzzle.val}})'}">
 				</div>
 			</div>
+		</div>
+		<div class="covered" ng-if="pausedGame">
+		</div>
+		<div class="solvedCover" ng-if="isSolved" >
 		</div>
 		<div class="solved" ng-if="isSolved" ng-bind="message">
 		</div>

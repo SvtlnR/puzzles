@@ -1,4 +1,4 @@
-var puzzlesApp = angular.module('puzzlesApp', ["ngRoute"]).config(function($routeProvider) {
+var puzzlesApp = angular.module('puzzlesApp', ['ngRoute','ngAnimate','angular-gestures']).config(function($routeProvider) {
     $routeProvider.when('/menu', {
         templateUrl: 'views/menu.html',
         controller: 'MenuController'
